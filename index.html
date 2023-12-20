@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://i.ytimg.com/vi/ag-DHH4SM5U/hq2.jpg?sqp=-oaymwEoCOADEOgC8quKqQMcGADwAQH4Ac4FgAKACooCDAgAEAEYTCBbKGUwDw==&rs=AOn4CLCECNhnkdT3SldxlYCTnvWTVy58Zw"/>
+    <link rel="stylesheet" href="index.css">
+    <title>ThalaForAReason</title>
+</head>
+<body>
+    <h1>Are You Thala For A Reason &#129300;</h1>
+
+    <div id="center-container">
+        <div id="input-container">
+            <input type="text" id="inputField" placeholder="Let's Find Out  &#128526;">
+            <button onclick="checkInput()">Enter</button>
+            <button onclick="resetInput()">Reset</button>
+        </div>
+        <div id="output"></div>
+
+        <div id="youtubeVideo">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/O9en3WlUcGg" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <button id="shareButton" onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+    </div>
+    <script>
+        function checkInput() {
+            var inputValue = document.getElementById("inputField").value;
+            document.getElementById("output").innerHTML = inputValue.length >= 7
+                ? `<span style="color: #ff0000; font-weight: bold;">${inputValue} is a Thala for a reason &#129305;&#x1F608;</span><br>`
+                :`${inputValue} Sorry, You Are Not A Thala&#128405;&#129326;<br>`;
+            document.getElementById("youtubeVideo").style.display = inputValue.length >= 7 ? "block" : "none";
+        }
+        function resetInput() {
+            document.getElementById("inputField").value = "";
+            document.getElementById("output").innerHTML = "";
+            document.getElementById("youtubeVideo").style.display = "none";
+        }
+        function shareOnWhatsApp() {
+            var inputValue = document.getElementById("inputField").value;
+            var message = inputValue.length >= 7
+                ? `I am a Thala for a reason! Check it out: https://deepxdchotaliya.github.io/ThalaForAReason//?thala=true`
+                : `I am not a Thala. Are you? Check it out: https://deepxdchotaliya.github.io/ThalaForAReason//?thala=false`;
+            var encodedMessage = encodeURIComponent(message);
+            var whatsappLink = `https://wa.me/?text=${encodedMessage}`;
+            window.open(whatsappLink, '_blank');
+        }
+    </script>
+</body>
+</html>
